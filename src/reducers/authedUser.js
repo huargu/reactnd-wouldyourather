@@ -1,4 +1,4 @@
-import { SET_AUTHED_USER } from "../actions/authenticaauthedUsertedUser";
+import { SET_AUTHED_USER } from "../actions/authedUser";
 
 export default function authenticatedUser(state = null, action) {
   switch (action.type) {
