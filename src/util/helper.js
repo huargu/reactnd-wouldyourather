@@ -1,6 +1,6 @@
 export function formatQuestion(question, author) {
   const { id, timestamp, optionOne, optionTwo } = question;
-  console.log(author)
+
   return {
     id,
     timestamp,
