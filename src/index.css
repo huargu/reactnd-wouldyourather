@@ -6,10 +6,10 @@
   list-style-type: none;
 }
 
-.login_container{
+.login-container{
   height: inherit
 }
-.login_div{
+.login-div{
   height: 55%;
   width: 31%;
   margin: 0 auto;
@@ -18,15 +18,32 @@
   padding: 25px;
 }
 
-.login_input{
+.login-input{
   margin-top:28px;
 }
-.login_btn{
+.login-btn{
   margin-top: 20px;
   font-size: 23px;
   font-weight: bold;
 }
 
-.login_h2{
+.login-h2{
   margin: 0;
+}
+
+.leaderboard-container{
+  height: inherit
+}
+.leaderboard-div{
+  height: 75%;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 140px;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+th, td {
+  text-align: center;
+  vertical-align: middle;
 }
