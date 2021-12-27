@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Card from "react-bootstrap/Card";
 import { connect } from "react-redux";
 import { formatQuestion } from "../util/helper";
+import QuestionAnswers from "./QuestionAnswers";
 
 class Question extends Component {
   render() {
@@ -27,7 +28,13 @@ class Question extends Component {
         </Card.Body>
       </Card>
     ) : (
-      <div>Question Details</div>
+      <div>
+        <Card className="mt-4" style={{ width: "50rem" }}>
+          <Card.Header>Would you rather?</Card.Header>
+          <QuestionAnswers id={question.id} />
+          <Card.Footer>{question.authorName} asks</Card.Footer>
+        </Card>
+      </div>
     );
   }
 }
