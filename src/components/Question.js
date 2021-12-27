@@ -3,10 +3,15 @@ import Card from "react-bootstrap/Card";
 import { connect } from "react-redux";
 import { formatQuestion } from "../util/helper";
 import QuestionAnswers from "./QuestionAnswers";
+import QuestionResults from "./QuestionResults";
 
 class Question extends Component {
   render() {
-    const { question, isDashboard } = this.props;
+    const { authedUser, question, isDashboard } = this.props;
+    const alreadyAnswered =
+      question.optionOne.votes.some((vote) => vote === authedUser) ||
+      question.optionTwo.votes.some((vote) => vote === authedUser);
+
     return isDashboard ? (
       <Card className="mt-4">
         <Card.Img src={question.authorAvatar}></Card.Img>
@@ -31,8 +36,12 @@ class Question extends Component {
       <div>
         <Card className="mt-4" style={{ width: "50rem" }}>
           <Card.Header>Would you rather?</Card.Header>
-          <QuestionAnswers id={question.id} />
-          <Card.Footer>{question.authorName} asks</Card.Footer>
+          {alreadyAnswered ? (
+            <QuestionResults authedUser={authedUser} question={question} />
+          ) : (
+            <QuestionAnswers id={question.id} />
+          )}
+          <Card.Footer>Asked by {question.authorName}</Card.Footer>
         </Card>
       </div>
     );
