@@ -5,8 +5,28 @@
 .ul {
   list-style-type: none;
 }
-.my-col {
-  background: yellowgreen;
-  border: 1px gray solid;
-  align-self: stretch;
+
+.login_container{
+  height: inherit
+}
+.login_div{
+  height: 55%;
+  width: 31%;
+  margin: 0 auto;
+  margin-top: 140px;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.login_input{
+  margin-top:28px;
+}
+.login_btn{
+  margin-top: 20px;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.login_h2{
+  margin: 0;
 }

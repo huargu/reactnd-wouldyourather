@@ -14,7 +14,7 @@ export function GridSystem({ colCount, children, md }) {
 
     for (let row = 0; row < rowCount; row++) {
       rows.push(
-        <Row className="Row m-row justify-content-center">{renderCols()}</Row>
+        <Row key={row} className="Row m-row justify-content-center">{renderCols()}</Row>
       );
     }
 
@@ -27,7 +27,7 @@ export function GridSystem({ colCount, children, md }) {
     for (let col = 0; col < colCount; col++) {
       if (index < children.length) {
         cols.push(
-          <Col className="Col d-flex align-items-stretch" md={md}>
+          <Col key={col} className="Col d-flex align-items-stretch" md={md}>
             {children[index]}
           </Col>
         );
