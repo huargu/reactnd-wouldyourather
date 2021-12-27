@@ -1,17 +1,18 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
+import { GridSystem } from "./Grid";
+import Question from "./Question";
 
 class Dashboard extends Component {
   render() {
-    console.log(this.props);
     return (
-      <div>
+      <div className="center">
         <h3>Question List</h3>
-        <ul>
+        <GridSystem colCount={5} md={2}>
           {this.props.questionIds.map((id) => (
-            <li key={id}>QuestionId: {id}</li>
+            <Question key={id} id={id} isDashboard={true} />
           ))}
-        </ul>
+        </GridSystem>
       </div>
     );
   }

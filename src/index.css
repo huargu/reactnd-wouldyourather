@@ -1,3 +1,12 @@
 .center {
   text-align: center;
 }
+
+.ul {
+  list-style-type: none;
+}
+.my-col {
+  background: yellowgreen;
+  border: 1px gray solid;
+  align-self: stretch;
+}
