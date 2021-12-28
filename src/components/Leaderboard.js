@@ -4,7 +4,6 @@ import { Table } from "react-bootstrap";
 
 class Leaderboard extends Component {
   render() {
-    console.log(this.props.users);
     const stats = this.props.users
       .map((user) => ({
         id: user.id,
@@ -20,7 +19,6 @@ class Leaderboard extends Component {
       .sort((a, b) => a.total - b.total)
       .reverse();
 
-    console.log(stats);
     return (
       <div className="leaderboard-container">
         <div className="leaderboard-div">

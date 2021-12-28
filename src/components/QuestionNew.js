@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import { connect } from "react-redux";
 import { handleAddQuestion } from "../actions/questions";
+import { Link } from "react-router-dom"
 
 class QuestionNew extends Component {
   state = {
@@ -44,6 +45,8 @@ class QuestionNew extends Component {
           />
           <Button
             className="form-btn primary large"
+            as={Link}
+            to="/"
             onClick={this.handleSubmit}
             disabled={
               this.state.optionOne === "" || this.state.optionTwo === ""

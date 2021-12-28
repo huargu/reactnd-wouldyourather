@@ -5,15 +5,13 @@ function QuestionResults({ authedUser, question }) {
   const totalVote =
     question.optionOne.votes.length + question.optionTwo.votes.length;
   const optionOnePercent =
-    totalVote === 0 ? 0 : 100 * (question.optionOne.votes.length / totalVote);
+    totalVote === 0 ? 0 : Math.round(100 * (question.optionOne.votes.length / totalVote));
   const optionTwoPercent =
-    totalVote === 0 ? 0 : 100 * (question.optionTwo.votes.length / totalVote);
-
-  console.log(optionOnePercent);
+    totalVote === 0 ? 0 : Math.round(100 * (question.optionTwo.votes.length / totalVote));
 
   return (
     <div className="result-container">
-      <Row className="Row m-row justify-content-left align-items-center">
+      <Row className="Row m-row justify-content-left align-items-center mt-2 mb-2">
         <Col md={3}>
           <div>{question.optionOne.text}</div>
         </Col>
@@ -26,7 +24,7 @@ function QuestionResults({ authedUser, question }) {
           </Col>
         ) : null}
       </Row>
-      <Row className="Row m-row justify-content-left align-items-center">
+      <Row className="Row m-row justify-content-left align-items-center mt-2 mb-2">
         <Col md={3}>
           <div>{question.optionTwo.text}</div>
         </Col>

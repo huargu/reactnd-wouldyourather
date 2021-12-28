@@ -13,7 +13,7 @@ class QuestionPage extends Component {
   }
 }
 
-function mapStateToProps({}, props) {
+function mapStateToProps({ autherUser }, props) {
   const { id } = props.match.params;
 
   return {
