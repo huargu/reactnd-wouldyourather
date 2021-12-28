@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../util/helper";
 import QuestionAnswers from "./QuestionAnswers";
 import QuestionResults from "./QuestionResults";
+import { withRouter, Link } from "react-router-dom";
 
 class Question extends Component {
   render() {
@@ -24,12 +25,12 @@ class Question extends Component {
             Would you rather{" "}
             <span className="text-reset">{question.optionOne.text} or?</span>
           </Card.Text>
-          <Card.Link
+          <Link
             className="btn btn-primary mt-auto align-self-start"
-            href="#"
+            to={`/questions/${question.id}`}
           >
             Answer
-          </Card.Link>
+          </Link>
         </Card.Body>
       </Card>
     ) : (
@@ -60,4 +61,4 @@ function mapStateToProps(
   };
 }
 
-export default connect(mapStateToProps)(Question);
+export default withRouter(connect(mapStateToProps)(Question));
