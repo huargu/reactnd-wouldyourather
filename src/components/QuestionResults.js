@@ -12,7 +12,7 @@ function QuestionResults({ authedUser, question }) {
   console.log(optionOnePercent);
 
   return (
-    <div>
+    <div className="result-container">
       <Row className="Row m-row justify-content-left align-items-center">
         <Col md={3}>
           <div>{question.optionOne.text}</div>

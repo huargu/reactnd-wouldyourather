@@ -7,7 +7,6 @@ class Dashboard extends Component {
   render() {
     return (
       <div className="center">
-        <h3>Question List</h3>
         <GridSystem colCount={5} md={2}>
           {this.props.questionIds.map((id) => (
             <Question key={id} id={id} isDashboard={true} />

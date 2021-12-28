@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import { Form, Button } from "react-bootstrap";
 import { connect } from "react-redux";
-import { setAuthedUser as setAuthedUserAction } from "../actions/authedUser";
+
+import { setAuthedUser } from "../actions/authedUser";
 
 class Login extends Component {
   state = {
@@ -10,7 +11,7 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.setAuthedUserAction(this.state.selectedUser);
+    this.props.dispatch(setAuthedUser(this.state.selectedUser));
   };
 
   handleChange = (e) => {
@@ -44,11 +45,11 @@ class Login extends Component {
   }
 }
 
-function mapStateToProps({ users }) {
+function mapStateToProps({ authedUser, users }) {
   return {
+    authedUser,
     users: Object.values(users),
-    setAutherUser: setAuthedUserAction,
   };
 }
 
-export default connect(mapStateToProps, { setAuthedUserAction })(Login);
+export default connect(mapStateToProps)(Login);

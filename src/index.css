@@ -6,7 +6,7 @@
   list-style-type: none;
 }
 
-.center-container {
+.form-container {
   height: inherit;
 }
 .form-div {
@@ -47,4 +47,29 @@ th,
 td {
   text-align: center;
   vertical-align: middle;
+}
+
+.result-container {
+  height: inherit;
+}
+.result-div {
+  height: 55%;
+  width: 31%;
+  margin: 0 auto;
+  margin-top: 140px;
+  border-radius: 5px;
+  padding: 25px;
+}
+
+.result-input {
+  margin-top: 28px;
+}
+.result-btn {
+  margin-top: 20px;
+  font-size: 23px;
+  font-weight: bold;
+}
+
+.result-h2 {
+  margin: 0;
 }

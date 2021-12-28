@@ -66,7 +66,7 @@ class QuestionAnswers extends Component {
           </Form.Group>
         </fieldset>
         <Form.Group as={Row} className="mb-3">
-          <Col sm={{ span: 10, offset: 2 }}>
+          <Col sm={{ span: 1, offset: 2 }}>
             <Button
               disabled={this.state.selectedOption === ""}
               onClick={this.handleSubmit}

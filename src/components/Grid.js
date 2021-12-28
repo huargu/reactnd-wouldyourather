@@ -3,7 +3,6 @@ import { Row, Col, Container } from "react-bootstrap";
 
 export function GridSystem({ colCount, children, md }) {
   let rowCount = Math.floor(children.length / colCount) + 1;
-
   let index = 0;
 
   const buildGrid = () => {
@@ -14,7 +13,9 @@ export function GridSystem({ colCount, children, md }) {
 
     for (let row = 0; row < rowCount; row++) {
       rows.push(
-        <Row key={row} className="Row m-row justify-content-center">{renderCols()}</Row>
+        <Row key={row} className="Row m-row justify-content-center">
+          {renderCols()}
+        </Row>
       );
     }
 
