@@ -5,11 +5,9 @@ function QuestionResults({ authedUser, question }) {
   const totalVote =
     question.optionOne.votes.length + question.optionTwo.votes.length;
   const optionOnePercent =
-    totalVote === 0 ? 0 : 100 * (question.optionOne.votes.length / totalVote);
+    totalVote === 0 ? 0 : Math.round(100 * (question.optionOne.votes.length / totalVote));
   const optionTwoPercent =
-    totalVote === 0 ? 0 : 100 * (question.optionTwo.votes.length / totalVote);
-
-  console.log(optionOnePercent);
+    totalVote === 0 ? 0 : Math.round(100 * (question.optionTwo.votes.length / totalVote));
 
   return (
     <div className="result-container">
