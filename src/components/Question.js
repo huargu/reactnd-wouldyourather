@@ -8,7 +8,7 @@ import { withRouter, Link } from "react-router-dom";
 
 class Question extends Component {
   render() {
-    const { authedUser, question, isDashboard } = this.props;
+    const { authedUser, question, isDashboard, isAnswered } = this.props;
     const alreadyAnswered =
       question.optionOne.votes.some((vote) => vote === authedUser) ||
       question.optionTwo.votes.some((vote) => vote === authedUser);
@@ -25,12 +25,21 @@ class Question extends Component {
             Would you rather{" "}
             <span className="text-reset">{question.optionOne.text} or?</span>
           </Card.Text>
+          {isAnswered ? 
+          <Link
+            className="btn btn-success mt-auto align-self-start"
+            to={`/questions/${question.id}`}
+          >
+            Results
+          </Link>
+          :
           <Link
             className="btn btn-primary mt-auto align-self-start"
             to={`/questions/${question.id}`}
           >
             Answer
           </Link>
+          }
         </Card.Body>
       </Card>
     ) : (
@@ -51,13 +60,14 @@ class Question extends Component {
 
 function mapStateToProps(
   { authedUser, users, questions },
-  { id, isDashboard }
+  { id, isDashboard, isAnswered }
 ) {
   const question = questions[id];
   return {
     authedUser,
     question: formatQuestion(question, users[question.author]),
     isDashboard,
+    isAnswered
   };
 }
 

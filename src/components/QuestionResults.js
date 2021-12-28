@@ -37,6 +37,11 @@ function QuestionResults({ authedUser, question }) {
           </Col>
         ) : null}
       </Row>
+      <Row>
+        <Col md={3}>
+          <small>Total Vote: {totalVote}</small>
+        </Col>
+      </Row>
     </div>
   );
 }
