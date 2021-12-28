@@ -11,7 +11,7 @@ function QuestionResults({ authedUser, question }) {
 
   return (
     <div className="result-container">
-      <Row className="Row m-row justify-content-left align-items-center">
+      <Row className="Row m-row justify-content-left align-items-center mt-2 mb-2">
         <Col md={3}>
           <div>{question.optionOne.text}</div>
         </Col>
@@ -24,7 +24,7 @@ function QuestionResults({ authedUser, question }) {
           </Col>
         ) : null}
       </Row>
-      <Row className="Row m-row justify-content-left align-items-center">
+      <Row className="Row m-row justify-content-left align-items-center mt-2 mb-2">
         <Col md={3}>
           <div>{question.optionTwo.text}</div>
         </Col>

@@ -7,6 +7,8 @@ import QuestionPage from "./QuestionPage";
 import QuestionNew from "./QuestionNew";
 import Login from "./Login";
 import Leaderboard from "./Leaderboard";
+import NavigationBar from "./NavigationBar";
+import { resetAuthedUser } from "../actions/authedUser"
 
 class App extends Component {
   componentDidMount() {
@@ -17,33 +19,42 @@ class App extends Component {
     return authedUser === null || authedUser === "" || authedUser === undefined;
   };
 
+  handleLogout = () => {
+    const { dispatch } = this.props;
+    dispatch(resetAuthedUser())
+  }
+
   render() {
-    const { authedUser } = this.props;
+    const { authedUser, users } = this.props;
 
     return (
       <BrowserRouter>
         <Fragment>
-          <div className="container">
-            {this.ifAuthedUserNotExists(authedUser) ? (
-              <Login />
-            ) : (
-              <Switch>
-                <Route path="/" exact component={Dashboard} />
-                <Route path="/questions/:id" component={QuestionPage} />
-                <Route path="/add" component={QuestionNew} />
-                <Route path="/leaderboard" component={Leaderboard} />
-              </Switch>
-            )}
-          </div>
+          {this.ifAuthedUserNotExists(authedUser) ? (
+            <Login />
+          ) : (
+            <div>
+              <NavigationBar authedUser={users[authedUser]} onLogoutClick={this.handleLogout} />
+              <div className="container flex-column">
+                <Switch>
+                  <Route path="/" exact component={Dashboard} />
+                  <Route path="/questions/:id" exact component={QuestionPage} />
+                  <Route path="/add" exact component={QuestionNew} />
+                  <Route path="/leaderboard" component={Leaderboard} />
+                </Switch>
+              </div>
+            </div>
+          )}
         </Fragment>
       </BrowserRouter>
     );
   }
 }
 
-function mapStateToProps({ authedUser }) {
+function mapStateToProps({ authedUser, users }) {
   return {
     authedUser,
+    users
   };
 }
 
