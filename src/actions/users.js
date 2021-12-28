@@ -1,5 +1,6 @@
 export const GET_USERS = "GET_USERS";
 export const ADD_ANSWER = "ADD_ANSWER";
+export const ADD_QUESTION = "ADD_QUESTION";
 
 export function getUsers(users) {
   return {
@@ -14,5 +15,13 @@ export function addAnswer(authedUser, qid, answer) {
     authedUser,
     qid,
     answer,
+  };
+}
+
+export function addQuestion({ author, id }) {
+  return {
+    type: ADD_QUESTION,
+    author,
+    id,
   };
 }

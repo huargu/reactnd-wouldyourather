@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../actions/shared";
 import Dashboard from "./Dashboard";
-import Leaderboard from "./Leaderboard";
+import QuestionNew from "./QuestionNew";
 
 class App extends Component {
   componentDidMount() {
@@ -10,7 +10,7 @@ class App extends Component {
   }
 
   render() {
-    return <div>{this.props.loading === true ? null : <Leaderboard />}</div>;
+    return <div>{this.props.loading === true ? null : <QuestionNew />}</div>;
   }
 }
 
