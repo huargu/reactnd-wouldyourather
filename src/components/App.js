@@ -8,6 +8,7 @@ import QuestionNew from "./QuestionNew";
 import Login from "./Login";
 import Leaderboard from "./Leaderboard";
 import NavigationBar from "./NavigationBar";
+import { NotFound } from "./NotFound";
 import { resetAuthedUser } from "../actions/authedUser"
 
 class App extends Component {
@@ -41,6 +42,7 @@ class App extends Component {
                   <Route path="/questions/:id" exact component={QuestionPage} />
                   <Route path="/add" exact component={QuestionNew} />
                   <Route path="/leaderboard" component={Leaderboard} />
+                  <Route path="/404" component={NotFound} />
                 </Switch>
               </div>
             </div>

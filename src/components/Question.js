@@ -4,11 +4,16 @@ import { connect } from "react-redux";
 import { formatQuestion } from "../util/helper";
 import QuestionAnswers from "./QuestionAnswers";
 import QuestionResults from "./QuestionResults";
-import { withRouter, Link } from "react-router-dom";
+import { withRouter, Link, Redirect } from "react-router-dom";
 
 class Question extends Component {
   render() {
     const { authedUser, question, isDashboard, isAnswered } = this.props;
+
+    if (!question) {
+      return !authedUser ? <Redirect to='/' /> : <Redirect to='/404'/>
+    }
+
     const alreadyAnswered =
       question.optionOne.votes.some((vote) => vote === authedUser) ||
       question.optionTwo.votes.some((vote) => vote === authedUser);
@@ -63,9 +68,10 @@ function mapStateToProps(
   { id, isDashboard, isAnswered }
 ) {
   const question = questions[id];
+
   return {
     authedUser,
-    question: formatQuestion(question, users[question.author]),
+    question: !question ? null : formatQuestion(question, users[question.author]),
     isDashboard,
     isAnswered
   };
